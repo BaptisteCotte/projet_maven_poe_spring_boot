@@ -13,7 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.formation.model.Knight;
 import fr.formation.model.Personnage;
+import fr.formation.model.Priest;
+import fr.formation.model.Sorcerer;
+import fr.formation.request.PersonnageRequest;
 import fr.formation.service.PersonnageService;
 
 @Controller
@@ -36,20 +40,28 @@ public class PersonnageController {
 
 	@GetMapping("/ajouter")
 	public String add(Model model) {
-		model.addAttribute("personnages", this.srvPersonnage.findAll());
 
 		return "form-perso";
 	}
 
 	@PostMapping("/ajouter")
-	public String add(@Valid Personnage personnage, BindingResult result, Model model) {
+	public String add(@Valid PersonnageRequest personnageR, BindingResult result, Model model) {
+	
+		
 		if (result.hasErrors()) {
-			model.addAttribute("personnages", this.srvPersonnage.findAll());
-
 			return "form-perso";
 		} else {
-
-			this.srvPersonnage.add(personnage);
+			if(personnageR.getClassePersonnageR().equals("sorcerer") ) {
+				Personnage personnage = new Sorcerer(personnageR.getName(),personnageR.getAge(),personnageR.getRace());
+				this.srvPersonnage.add(personnage);
+			}else if (personnageR.getClassePersonnageR().equals("knight")) {
+				Personnage personnage = new Knight(personnageR.getName(),personnageR.getAge(),personnageR.getRace());
+				this.srvPersonnage.add(personnage);
+			}else {
+				Personnage personnage = new Priest(personnageR.getName(),personnageR.getAge(),personnageR.getRace());
+				this.srvPersonnage.add(personnage);
+			}
+			
 
 			return "redirect:liste";
 		}
@@ -57,16 +69,14 @@ public class PersonnageController {
 
 	@GetMapping("/modifier")
 	public String update(@RequestParam int id, Model model) {
-		model.addAttribute("produit", this.srvPersonnage.findById(id));
-
+		model.addAttribute("personnage", this.srvPersonnage.findById(id));
+		
 		return "form-modifier-perso";
 	}
 
 	@PostMapping("/modifier")
 	public String update(@Valid Personnage personnage, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			model.addAttribute("categories", this.srvPersonnage.findAll());
-
 			return "form-modifier-perso";
 		} else {
 			this.srvPersonnage.update(personnage);

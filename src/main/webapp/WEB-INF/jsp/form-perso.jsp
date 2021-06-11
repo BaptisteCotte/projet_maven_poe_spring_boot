@@ -15,7 +15,7 @@
 		<div class="leftbox"></div>
 
 		<div class="rightbox">
-			<form method="POST">
+			<form method="POST" modelAttribute = "personnage">
 				<div class="profile">
 					<h1>Add Character</h1>
 					<div>
@@ -53,11 +53,11 @@
 						<label>Class</label>
 						<div>
 							<label for="knight" class="l-radio"> <input type="radio"
-								id="knight" name="classe" value="knight" checked><span>
+								id="knight" name="classePersonnageR" value="knight" checked><span>
 									Knight</span></label> <label for="sorcerer" class="l-radio"> <input
-								type="radio" id="sorcerer" name="classe" value="sorcerer">
+								type="radio" id="sorcerer" name="classePersonnageR" value="sorcerer">
 								<span>Sorcerer</span></label> <label for="priest" class="l-radio">
-								<input type="radio" id="priest" name="classe" value="priest">
+								<input type="radio" id="priest" name="classePersonnageR" value="priest">
 								<span>Priest</span>
 							</label>
 						</div>

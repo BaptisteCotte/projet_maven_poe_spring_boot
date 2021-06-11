@@ -18,9 +18,9 @@
 
 	<hr class="mainHr">
 
-	<div class="addChar">
-		<c:if test="${ fn:length(personnages) < 3 }">
-			<a href="form-perso" class="pricing-button is-featured">New
+<div class="addChar">
+		<c:if test="${ fn:length(personnages) < 1500 }">
+			<a href="ajouter" class="pricing-button is-featured">New
 				character</a>
 		</c:if>
 
