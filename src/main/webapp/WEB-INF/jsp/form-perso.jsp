@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Personnage</title>
-<link href="./assets/css/styleForm.css" rel="stylesheet" type="text/css">
+<link href="/assets/css/styleForm.css" rel="stylesheet" type="text/css">
 </head>
 
 

@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Edit Character</title>
-<link href="./assets/css/styleForm.css" rel="stylesheet" type="text/css">
+<link href="/assets/css/styleForm.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div class="container">
