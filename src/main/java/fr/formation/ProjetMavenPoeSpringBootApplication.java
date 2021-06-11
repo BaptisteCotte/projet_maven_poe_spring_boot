@@ -1,4 +1,4 @@
-package fr.formation.projet_maven_poe_spring_boot;
+package fr.formation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
