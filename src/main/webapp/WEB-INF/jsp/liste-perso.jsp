@@ -13,12 +13,12 @@
 <body>
 
 	<div class="teamTitle">
-		<h1>TEAM</h1>
+		<h1>Characters</h1>
 	</div>
 
 	<hr class="mainHr">
 
-<div class="addChar">
+	<div class="addChar">
 		<c:if test="${ fn:length(personnages) < 1500 }">
 			<a href="ajouter" class="pricing-button is-featured">New
 				character</a>

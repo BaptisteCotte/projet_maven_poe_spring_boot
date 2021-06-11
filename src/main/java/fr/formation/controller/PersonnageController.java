@@ -29,7 +29,6 @@ public class PersonnageController {
 
 	@GetMapping("/liste")
 	public String findAll(Model model) {
-		System.out.println("Je suis dans le findall");
 		
 		List<Personnage> nosPersonnages = this.srvPersonnage.findAll();
 
@@ -46,7 +45,6 @@ public class PersonnageController {
 
 	@PostMapping("/ajouter")
 	public String add(@Valid PersonnageRequest personnageR, BindingResult result, Model model) {
-	
 		
 		if (result.hasErrors()) {
 			return "form-perso";
