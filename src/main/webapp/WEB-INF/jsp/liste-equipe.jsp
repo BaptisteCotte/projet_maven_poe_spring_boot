@@ -15,8 +15,7 @@
 	<div class="teamTitle">
 		<h1>TEAMS</h1>
 	</div>
-	<a href="ajouter" class="pricing-button is-featured">New
-				Team</a>
+
 
 	<hr class="mainHr">
 

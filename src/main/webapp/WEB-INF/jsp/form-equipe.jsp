@@ -1,0 +1,59 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="t"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Team</title>
+<link href="/assets/css/styleForm.css" rel="stylesheet" type="text/css">
+</head>
+
+
+<!-- Tab content -->
+<div id="ajouter" class="container">
+	<div class="leftbox"></div>
+
+	<div class="rightbox">
+		<form method="POST" modelAttribute="equipe">
+			<div class="profile">
+				<h1>Add Team</h1>
+				<div>
+					<label>Character 1 : </label> <select name="personnage.id">
+						<c:forEach var="personnage" items="${ personnages }">
+							<option selected value="${ personnage.id }">${ personnage.id }
+								${ personnage.name } ${ personnage.getClass().toString().split("\\.")[3]}
+								${personnage.lvl }</option>
+						</c:forEach>
+					</select>
+				</div>
+				<br>
+				<div>
+					<label>Character 2 : </label> <select name="personnage.id">
+						<c:forEach var="personnage" items="${ personnages }">
+							<option selected value="${ personnage.id }">${ personnage.id }
+								${ personnage.name } ${ personnage.getClass().toString().split("\\.")[3]}
+								${personnage.lvl }</option>
+						</c:forEach>
+					</select>
+				</div>
+				<br>
+				<div>
+					<label>Character 3 : </label> <select name="personnage.id">
+						<c:forEach var="personnage" items="${ personnages }">
+							<option selected value="${ personnage.id }">${ personnage.id }
+								${ personnage.name } ${ personnage.getClass().toString().split("\\.")[3]}
+								${personnage.lvl }</option>
+						</c:forEach>
+					</select>
+				</div>
+				<br>
+
+				<div>
+					<br> <br>
+					<button class="btn" type="submit" value="Edit">Submit</button>
+				</div>
+		</form>
+	</div>
+	</body>
+</html>

@@ -4,6 +4,8 @@ import fr.formation.model.Race;
 
 public class PersonnageRequest {
 	
+	protected int id;
+	
 	protected String name;
 	
 	protected int age;
@@ -12,6 +14,14 @@ public class PersonnageRequest {
 	
 	protected String classePersonnageR;
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getName() {
 		return name;
 	}

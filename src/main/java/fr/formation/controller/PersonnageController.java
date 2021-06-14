@@ -51,6 +51,7 @@ public class PersonnageController {
 		} else {
 			if(personnageR.getClassePersonnageR().equals("sorcerer") ) {
 				Personnage personnage = new Sorcerer(personnageR.getName(),personnageR.getAge(),personnageR.getRace());
+				
 				this.srvPersonnage.add(personnage);
 			}else if (personnageR.getClassePersonnageR().equals("knight")) {
 				Personnage personnage = new Knight(personnageR.getName(),personnageR.getAge(),personnageR.getRace());

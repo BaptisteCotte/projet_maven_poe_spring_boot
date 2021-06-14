@@ -206,4 +206,5 @@ public abstract class Personnage {
 		this.setHp(this.getMaxHp());
 	}
 
+	
 }
