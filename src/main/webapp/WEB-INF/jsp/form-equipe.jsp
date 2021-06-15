@@ -21,7 +21,7 @@
 				<div>
 					<label>Character 1 : </label> <select name="personnageR1">
 						<c:forEach var="personnage" items="${ personnages }">
-						
+
 							<option selected value="${ personnage.id }">${ personnage.id }
 								${ personnage.name } ${ personnage.getClass().toString().split("\\.")[3]}
 								${personnage.lvl }</option>
@@ -56,5 +56,6 @@
 				</div>
 		</form>
 	</div>
-	</body>
+</div>
+</body>
 </html>

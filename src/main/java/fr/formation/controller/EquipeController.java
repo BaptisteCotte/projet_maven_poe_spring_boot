@@ -2,23 +2,16 @@ package fr.formation.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.model.Equipe;
-import fr.formation.model.Knight;
 import fr.formation.model.Personnage;
-import fr.formation.model.Priest;
-import fr.formation.model.Sorcerer;
-import fr.formation.request.PersonnageRequest;
 import fr.formation.service.EquipeService;
 import fr.formation.service.PersonnageService;
 
@@ -74,6 +67,17 @@ public class EquipeController {
 		
 	}
 
-
+	@GetMapping("/combat")
+	public String combat(@RequestParam int idEquipe1, @RequestParam int idEquipe2, Model model) {
+	
+	Equipe equipe1 = this.srvEquipe.findById(idEquipe1);
+	Equipe equipe2 = this.srvEquipe.findById(idEquipe2);
+		
+		
+	model.addAttribute("equipe1", equipe1);
+	model.addAttribute("equipe2", equipe2);
+		
+		return "combat";
+	}
 
 }
