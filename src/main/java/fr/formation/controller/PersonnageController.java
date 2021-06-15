@@ -30,6 +30,7 @@ public class PersonnageController {
 	@GetMapping("/liste")
 	public String findAll(Model model) {
 		
+		System.out.println("Rentré dans la liste des persos");
 		List<Personnage> nosPersonnages = this.srvPersonnage.findAll();
 
 		model.addAttribute("personnages", nosPersonnages);
