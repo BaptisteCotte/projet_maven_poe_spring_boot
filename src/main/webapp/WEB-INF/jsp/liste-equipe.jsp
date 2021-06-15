@@ -73,7 +73,8 @@
 			<div>
 				<!-- <a href="combat?idEquipe1=<c:out value= "dbRes[0].value"/>&idEquipe2=<c:out value="dbRes[1].value"/>" class="pricing-button is-featured" name="battle"
 					id="battle" onclick="count_chkBox()">Battle</a> -->
-					<button class="favorite styled" type="button" onclick="count_chkBox()"> Battle </button>
+				<button class="favorite styled" type="button"
+					onclick="count_chkBox()">Battle</button>
 			</div>
 		</div>
 	</div>
@@ -91,10 +92,11 @@
 			}
 
 			if (nbre_check != 2) {
-				alert(dbRes[0] );
+				alert(dbRes[0]);
 				alert(dbRes.length + "Vous devez sélectionner deux équipes");
 			} else {
-				var link = "combat?idEquipe1="+dbRes[0]+"&idEquipe2="+dbRes[1];
+				var link = "combat?idEquipe1=" + dbRes[0] + "&idEquipe2="
+						+ dbRes[1];
 				alert(link);
 				window.location.href = link;
 			}

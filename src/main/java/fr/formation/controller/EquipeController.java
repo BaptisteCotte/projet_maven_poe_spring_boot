@@ -72,12 +72,23 @@ public class EquipeController {
 	
 	Equipe equipe1 = this.srvEquipe.findById(idEquipe1);
 	Equipe equipe2 = this.srvEquipe.findById(idEquipe2);
-		
-		
+	
+	Personnage e1p1 =  equipe1.getPer1();
+	Personnage e1p2 =  equipe1.getPer2();
+	Personnage e1p3 =  equipe1.getPer3();
+	
+	Personnage e2p1 =  equipe2.getPer1();
+	Personnage e2p2 =  equipe2.getPer2();
+	Personnage e2p3 =  equipe2.getPer3();
+	
 	model.addAttribute("equipe1", equipe1);
+
 	model.addAttribute("equipe2", equipe2);
-		
+
 		return "combat";
 	}
+
+	
+
 
 }
