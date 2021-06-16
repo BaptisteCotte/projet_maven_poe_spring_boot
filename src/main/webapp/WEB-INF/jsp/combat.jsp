@@ -49,10 +49,14 @@
 						</li>
 					</ul>
 				</div>
+				
 				<div class="pricing-plan">
 					<p>Tour de : ${ player.name }</p>
 					<ul class="pricing-features">
 						<p id="texte"> ${ texte } </p>
+						<form method="POST">
+						<input type="hidden" name="${ _csrf.parameterName }"value="${ _csrf.token }" />
+						<input type="hidden" name="playerId"value="${ player.id }" />
 						<li class="pricing-features-item"><input type="radio"
 							name="action" value="attack" checked> 
 							<label for="attack">Attack</label>
@@ -61,20 +65,18 @@
 								<label for="heal">Heal</label></li>
 							</c:if>
 						<label>Personnage </label>
-						<input type="text" name="personnage"
-							pattern="^[A-Z]+[\-]{0,1}([a-z]{1,}[\-]{0,1}){0,}[a-z]$" required>
+						<input type="text" name="cible" patern="^e[1,2]p[1,2,3]$" required>
 						<p>
 							Doit etre nommé ainsi : e1p1 <br> e1=>équipe1 <br>p1=>personnage1
 						</p>
 
 						<li class="pricing-features-item">
-							<button class="favorite styled" type="button"
-								onclick="count_chkBox()">Validate</button>
+							<button class="favorite styled" type="submit" value="combat">validate</button>
 						</li>
+						</form>
 					</ul>
-
-
 				</div>
+				
 				<div class="pricing-plan">
 					<img
 						src="https://www.pngkey.com/png/detail/6-61715_knight-drawing-helmet-iron-man-armour-knight-drawing.png"

@@ -98,7 +98,7 @@ public class EquipeController {
 	
 	if(tour==1) {
 		if(e1p1.isState()) {
-			tour++;
+			player = e1p1;
 		}else {
 			tour++;
 			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
@@ -106,7 +106,6 @@ public class EquipeController {
 	}else if(tour==2) {
 		if(e1p2.isState()) {
 			player = e1p2;
-			tour++;
 		}else {
 			tour++;
 			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
@@ -114,7 +113,6 @@ public class EquipeController {
 	}else if(tour==3) {
 		if(e1p3.isState()) {
 			player = e1p3;
-			tour++;
 		}else {
 			tour++;
 			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
@@ -122,7 +120,6 @@ public class EquipeController {
 	}else if(tour==4) {
 		if(e2p1.isState()) {
 			player = e2p1;
-			tour++;
 		}else {
 			tour++;
 			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
@@ -130,7 +127,6 @@ public class EquipeController {
 	}else if(tour==5) {
 		if(e2p2.isState()) {
 			player = e2p2;
-			tour++;
 		}else {
 			tour++;
 			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
@@ -138,7 +134,6 @@ public class EquipeController {
 	}else if(tour==6) {
 		if(e2p3.isState()) {
 			player = e2p3;
-			tour = 1;
 		}else {
 			tour = 1;
 			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
@@ -164,13 +159,58 @@ public class EquipeController {
 		return "combat";
 	}
 	
+	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/combat")
-	public String combat(@RequestParam int attack,@RequestParam int heal,@RequestParam String personnage, Model model) {
-
+	public String combat(@RequestParam int idEquipe1, @RequestParam int idEquipe2, @RequestParam String texte,@RequestParam int tour,@RequestParam String cible, @RequestParam String action, @RequestParam int playerId,Model model) {
+		System.out.println("idEquipe1="+idEquipe1);
+		System.out.println("idEquipe2="+idEquipe2);
+		System.out.println("texte="+texte);
+		System.out.println("tour="+tour);
+		System.out.println("cible="+cible);
+		System.out.println("action="+action);
+		System.out.println("playerId="+playerId);
 		
+		Personnage attaquant = this.srvPersonnage.findById(playerId);
 		
-		return "combat";
+		Personnage attaque;
+		if(cible.equals("e1p1")) {
+			attaque = this.srvEquipe.findById(idEquipe1).getPer1();
+		}else if(cible.equals("e1p2")) {
+			attaque = this.srvEquipe.findById(idEquipe1).getPer2();
+		}else if(cible.equals("e1p3")) {
+			attaque = this.srvEquipe.findById(idEquipe1).getPer3();
+		}else if(cible.equals("e2p1")) {
+			attaque = this.srvEquipe.findById(idEquipe2).getPer1();
+		}else if(cible.equals("e2p2")) {
+			attaque = this.srvEquipe.findById(idEquipe2).getPer2();
+		}else{
+			attaque = this.srvEquipe.findById(idEquipe2).getPer3();
+		}
 		
+		tour++;
+		if(tour>6) {
+			tour = 1;
+		}
+		
+		if(action.equals("attack")) {
+			if(attaque.isState()) {
+				attaquant.attaquer(attaque);
+				this.srvPersonnage.update(attaque);
+			} else {
+				return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
+			}
+		}
+		if(action.equals("heal")) {
+			if(attaque.isState()) {
+				IHealer soigneur = (IHealer)attaquant;
+				soigneur.heal(attaque);
+				this.srvPersonnage.update(attaque);
+			} else {
+				return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
+			}
+		}
+		
+		return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
 	}
 	
 
