@@ -96,6 +96,39 @@ public class EquipeController {
 	
 	Personnage player = e1p1;
 	
+	if(!e1p1.isState()&&!e1p2.isState()&&!e1p3.isState()) {
+		if(e2p1.isState()) {
+			e2p1.regen();
+			this.srvPersonnage.update(e2p1);
+		}
+		if(e2p2.isState()) {
+			e2p2.regen();
+			this.srvPersonnage.update(e2p2);
+		}
+		if(e2p3.isState()) {
+			e2p3.regen();
+			this.srvPersonnage.update(e2p3);
+		}
+		return "redirect:victoire?winner="+idEquipe2;
+	}
+	
+	if(!e2p1.isState()&&!e2p2.isState()&&!e2p3.isState()) {
+		if(e1p1.isState()) {
+			e1p1.regen();
+			this.srvPersonnage.update(e1p1);
+		}
+		if(e1p2.isState()) {
+			e1p2.regen();
+			this.srvPersonnage.update(e1p2);
+		}
+		if(e1p3.isState()) {
+			e1p3.regen();
+			this.srvPersonnage.update(e1p3);
+		}
+		return "redirect:victoire?winner="+idEquipe1;
+	}
+	
+	
 	if(tour==1) {
 		if(e1p1.isState()) {
 			player = e1p1;
@@ -192,10 +225,21 @@ public class EquipeController {
 			tour = 1;
 		}
 		
+		texte = texte+" "+attaquant.getName();
+		
 		if(action.equals("attack")) {
 			if(attaque.isState()) {
+				texte = texte+" attaque "+attaque.getName()+". ";
+				int hpBefore = attaque.getHp();
 				attaquant.attaquer(attaque);
+				int hpAfter = attaque.getHp();
+				int perdu = hpBefore - hpAfter;
+				texte = texte+"La cible a perdu "+perdu+" hp. Il lui en reste "+hpAfter+".";
+				if(!attaque.isState()) {
+					texte = texte+" La cible est morte !";
+				}
 				this.srvPersonnage.update(attaque);
+				
 			} else {
 				return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
 			}
@@ -203,13 +247,17 @@ public class EquipeController {
 		if(action.equals("heal")) {
 			if(attaque.isState()) {
 				IHealer soigneur = (IHealer)attaquant;
+				texte = texte+" soigne "+attaque.getName()+". ";
+				int hpBefore = attaque.getHp();
 				soigneur.heal(attaque);
+				int hpAfter = attaque.getHp();
+				int gagne = hpAfter - hpBefore;
+				texte = texte+"La cible a gagne "+gagne+" hp. Il lui en a maintenant "+hpAfter+".";
 				this.srvPersonnage.update(attaque);
 			} else {
 				return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
 			}
 		}
-		
 		return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
 	}
 	
