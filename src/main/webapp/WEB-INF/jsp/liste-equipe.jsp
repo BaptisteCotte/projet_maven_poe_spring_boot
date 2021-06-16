@@ -19,11 +19,12 @@
 
 	<hr class="mainHr">
 
-	<div class="addChar">
+<%-- 	<div class="addChar">
 		<c:if test="${ fn:length(equipes) < 3 }">
 			<a href="ajouter" class="pricing-button is-featured">New Team</a>
 		</c:if>
-	</div>
+	</div> --%>
+	
 	<div class="background">
 		<div class="container">
 			<div class="panel pricing-table">

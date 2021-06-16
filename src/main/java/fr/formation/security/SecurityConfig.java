@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.formLogin()
 				.loginPage("/page-login") //GET de formulaire de connexion
 				.loginProcessingUrl("/perform_login") //POST géré par SPRING SECURITY
-				.defaultSuccessUrl("/equipe/liste", true) //Redirection OK
+				.defaultSuccessUrl("/menu/liste", true) //Redirection OK
 				.failureUrl("/page-login?erreur=true") //Redirection KO
 				.permitAll() //On autorise tout le monde
 			

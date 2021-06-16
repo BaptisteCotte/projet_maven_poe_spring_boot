@@ -23,6 +23,7 @@ public class UtilisateurPrincipal implements UserDetails {
 		List<GrantedAuthority> authorities = new ArrayList<>();
 		
 			if (this.utilisateur.isAdmin()) {
+				System.out.println("Je suis admin");
 				authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 			}
 			

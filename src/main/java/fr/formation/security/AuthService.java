@@ -24,7 +24,12 @@ public class AuthService implements UserDetailsService {
 		}
 		
 		else  {
-			throw new UsernameNotFoundException("Username or password is incorrect");
+			Utilisateur utilisateur = this
+					.daoUtilisateur
+					.findByUsername(username)
+					.orElseThrow(() -> new UsernameNotFoundException("Utilisateur n'existe pas."));
+			
+			return new UtilisateurPrincipal(utilisateur);
 		}
 	
 	}

@@ -5,9 +5,11 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,12 +40,14 @@ public class PersonnageController {
 		return "liste-perso";
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/ajouter")
 	public String add(Model model) {
 
 		return "form-perso";
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/ajouter")
 	public String add(@Valid PersonnageRequest personnageR, BindingResult result, Model model) {
 		
@@ -67,6 +71,7 @@ public class PersonnageController {
 		}
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/modifier")
 	public String update(@RequestParam int id, Model model) {
 		model.addAttribute("personnage", this.srvPersonnage.findById(id));
@@ -74,17 +79,20 @@ public class PersonnageController {
 		return "form-modifier-perso";
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/modifier")
 	public String update(@Valid Personnage personnage, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			return "form-modifier-perso";
 		} else {
+			
 			this.srvPersonnage.update(personnage);
 
 			return "redirect:liste";
 		}
 	}
 	
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/supprimer")
 	public String deleteById(@RequestParam int id) {
 		this.srvPersonnage.deleteById(id);

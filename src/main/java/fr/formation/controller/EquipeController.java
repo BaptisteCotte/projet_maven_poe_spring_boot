@@ -3,6 +3,7 @@ package fr.formation.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,6 +32,7 @@ public class EquipeController {
 		return "liste-equipe";
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/ajouter")
 	public String add(Model model) {
 		List<Personnage> nosPersonnages = this.srvPersonnage.findAll();
@@ -42,6 +44,7 @@ public class EquipeController {
 		return "form-equipe";
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/ajouter")
 	public String add(@RequestParam int personnageR1, @RequestParam int personnageR2, @RequestParam int personnageR3,
 			Model model) {
@@ -67,6 +70,7 @@ public class EquipeController {
 		
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/combat")
 	public String combat(@RequestParam int idEquipe1, @RequestParam int idEquipe2, @RequestParam String texte,@RequestParam int tour, Model model) {
 	
