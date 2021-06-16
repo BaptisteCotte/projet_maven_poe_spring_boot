@@ -31,7 +31,7 @@ public class PersonnageController {
 
 	@GetMapping("/liste")
 	public String findAll(Model model) {
-		
+
 		System.out.println("Rentré dans la liste des persos");
 		List<Personnage> nosPersonnages = this.srvPersonnage.findAll();
 
@@ -50,22 +50,22 @@ public class PersonnageController {
 	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/ajouter")
 	public String add(@Valid PersonnageRequest personnageR, BindingResult result, Model model) {
-		
+
 		if (result.hasErrors()) {
 			return "form-perso";
 		} else {
-			if(personnageR.getClassePersonnageR().equals("sorcerer") ) {
-				Personnage personnage = new Sorcerer(personnageR.getName(),personnageR.getAge(),personnageR.getRace());
-				
+			if (personnageR.getClassePersonnageR().equals("sorcerer")) {
+				Personnage personnage = new Sorcerer(personnageR.getName(), personnageR.getAge(),
+						personnageR.getRace());
+
 				this.srvPersonnage.add(personnage);
-			}else if (personnageR.getClassePersonnageR().equals("knight")) {
-				Personnage personnage = new Knight(personnageR.getName(),personnageR.getAge(),personnageR.getRace());
+			} else if (personnageR.getClassePersonnageR().equals("knight")) {
+				Personnage personnage = new Knight(personnageR.getName(), personnageR.getAge(), personnageR.getRace());
 				this.srvPersonnage.add(personnage);
-			}else {
-				Personnage personnage = new Priest(personnageR.getName(),personnageR.getAge(),personnageR.getRace());
+			} else {
+				Personnage personnage = new Priest(personnageR.getName(), personnageR.getAge(), personnageR.getRace());
 				this.srvPersonnage.add(personnage);
 			}
-			
 
 			return "redirect:liste";
 		}
@@ -75,28 +75,28 @@ public class PersonnageController {
 	@GetMapping("/modifier")
 	public String update(@RequestParam int id, Model model) {
 		model.addAttribute("personnage", this.srvPersonnage.findById(id));
-		
+
 		return "form-modifier-perso";
 	}
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/modifier")
-	public String update(@Valid Personnage personnage, BindingResult result, Model model) {
-		if (result.hasErrors()) {
-			return "form-modifier-perso";
-		} else {
-			
-			this.srvPersonnage.update(personnage);
+	public String modifier(@RequestParam int id, @RequestParam String name, @RequestParam String age, Model model) {
 
-			return "redirect:liste";
-		}
+		Personnage personnage = this.srvPersonnage.findById(id);
+		personnage.setName(name);
+		personnage.setAge(Integer.parseInt(age));
+		this.srvPersonnage.update(personnage);
+
+		return "redirect:liste";
+
 	}
-	
+
 	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/supprimer")
 	public String deleteById(@RequestParam int id) {
 		this.srvPersonnage.deleteById(id);
-		
+
 		return "redirect:liste";
 	}
 }
