@@ -24,7 +24,7 @@ public class AuthService implements UserDetailsService {
 		}
 		
 		else  {
-			return null;
+			throw new UsernameNotFoundException("Username or password is incorrect");
 		}
 	
 	}
