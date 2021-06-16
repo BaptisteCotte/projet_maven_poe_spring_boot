@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.model.Equipe;
+import fr.formation.model.IHealer;
 import fr.formation.model.Personnage;
 import fr.formation.service.EquipeService;
 import fr.formation.service.PersonnageService;
@@ -73,9 +74,12 @@ public class EquipeController {
 	Equipe equipe1 = this.srvEquipe.findById(idEquipe1);
 	Equipe equipe2 = this.srvEquipe.findById(idEquipe2);
 	if(tour == 1) {
-		if(!texte.equals("Debut combat")) {
+		if(!texte.equals("Debut combat.")) {
 			return "redirect:liste";
 		}
+	}
+	if(texte.length()>450) {
+		texte = texte.substring(texte.length()-450);
 	}
 	
 	Personnage e1p1 =  equipe1.getPer1();
@@ -86,11 +90,73 @@ public class EquipeController {
 	Personnage e2p2 =  equipe2.getPer2();
 	Personnage e2p3 =  equipe2.getPer3();
 	
+	Personnage player = e1p1;
+	
+	if(tour==1) {
+		if(e1p1.isState()) {
+			tour++;
+		}else {
+			tour++;
+			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
+		}
+	}else if(tour==2) {
+		if(e1p2.isState()) {
+			player = e1p2;
+			tour++;
+		}else {
+			tour++;
+			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
+		}
+	}else if(tour==3) {
+		if(e1p3.isState()) {
+			player = e1p3;
+			tour++;
+		}else {
+			tour++;
+			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
+		}
+	}else if(tour==4) {
+		if(e2p1.isState()) {
+			player = e2p1;
+			tour++;
+		}else {
+			tour++;
+			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
+		}
+	}else if(tour==5) {
+		if(e2p2.isState()) {
+			player = e2p2;
+			tour++;
+		}else {
+			tour++;
+			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
+		}
+	}else if(tour==6) {
+		if(e2p3.isState()) {
+			player = e2p3;
+			tour = 1;
+		}else {
+			tour = 1;
+			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
+		}
+	}
+	boolean isHealer = false;
+	if(player instanceof IHealer) {
+		isHealer = true;
+	}
+
+	model.addAttribute("player", player);
+	
 	model.addAttribute("equipe1", equipe1);
 
 	model.addAttribute("equipe2", equipe2);
 
 	model.addAttribute("texte",texte);
+	
+	model.addAttribute("tour",tour);
+	
+	model.addAttribute("isHealer",isHealer);
+	
 		return "combat";
 	}
 	
@@ -102,8 +168,6 @@ public class EquipeController {
 		return "combat";
 		
 	}
-
 	
-
 
 }

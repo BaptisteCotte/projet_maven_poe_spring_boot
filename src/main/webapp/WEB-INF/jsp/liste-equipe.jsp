@@ -95,7 +95,7 @@
 				alert(dbRes[0]);
 				alert(dbRes.length + "Vous devez s�lectionner deux �quipes");
 			} else {
-				var texte = "Debut combat";
+				var texte = "Debut combat.";
 				var tour = 1;
 				var link = "combat?idEquipe1="+dbRes[0]+"&idEquipe2="+dbRes[1]+"&texte="+texte+"&tour="+tour;
 				alert(link);

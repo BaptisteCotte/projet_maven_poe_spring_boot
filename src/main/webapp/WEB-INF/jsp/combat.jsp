@@ -50,12 +50,16 @@
 					</ul>
 				</div>
 				<div class="pricing-plan">
+					<p>Tour de : ${ player.name }</p>
 					<ul class="pricing-features">
 						<p id="texte"> ${ texte } </p>
 						<li class="pricing-features-item"><input type="radio"
-							name="action" value="attack" checked> <label for="attack">Attack</label>
-							<input type="radio" name="action" value="heal">
-							<label for="heal">Heal</label></li>
+							name="action" value="attack" checked> 
+							<label for="attack">Attack</label>
+							<c:if test="${ isHealer }">
+								<input type="radio" name="action" value="heal">
+								<label for="heal">Heal</label></li>
+							</c:if>
 						<label>Personnage </label>
 						<input type="text" name="personnage"
 							pattern="^[A-Z]+[\-]{0,1}([a-z]{1,}[\-]{0,1}){0,}[a-z]$" required>
