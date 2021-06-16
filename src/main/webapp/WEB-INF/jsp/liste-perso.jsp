@@ -18,13 +18,14 @@
 
 	<hr class="mainHr">
 
-	<div class="addChar">
+<%-- 	<div class="addChar">
 		<c:if test="${ fn:length(personnages) < 1500 }">
 			<a href="ajouter" class="pricing-button is-featured">New
 				character</a>
 		</c:if>
 
-	</div>
+	</div> --%>
+	
 	<div class="background">
 		<div class="container">
 			<div class="panel pricing-table">

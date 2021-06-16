@@ -16,6 +16,8 @@
 
 		<div class="rightbox">
 			<form method="POST" modelAttribute = "personnage">
+				<input type="hidden" name="${ _csrf.parameterName }"
+					value="${ _csrf.token }" /> 
 				<div class="profile">
 					<h1>Add Character</h1>
 					<div>

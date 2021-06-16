@@ -14,6 +14,8 @@
 
 		<div class="rightbox">
 			<form method="POST">
+				<input type="hidden" name="${ _csrf.parameterName }"
+					value="${ _csrf.token }" /> 
 				<div class="profile">
 					<h1>Edit Character</h1>
 					</br> <label>Name</label> </br> <input type="text" name="name"

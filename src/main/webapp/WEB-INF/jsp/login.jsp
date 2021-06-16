@@ -1,32 +1,52 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib tagdir="/WEB-INF/tags" prefix="t" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="t"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<t:layout>
-	<jsp:attribute name="title">Se connecter</jsp:attribute>
-	
-	<jsp:body>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="/assets/css/login.css" />
+<title>Connexion</title>
+
+</head>
+<body>
+
 		<c:if test="${ param.erreur == true }">
-			<div class="alert alert-danger">
-				Nom d'utilisateur ou mot de passe incorrect.
+			<div class="alert">
+				Username or password is incorrect
 			</div>
 		</c:if>
-		
-		<form method="POST" action="perform_login">
-			<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }" />
-			
-			<div>
-				<label>Nom d'utilisateur</label>
-				<input type="text" name="username" />
+	<div class="container" id="container">
+	
+		<div class="form-container sign-in-container">
+			<form method="POST" action="perform_login">
+				<input type="hidden" name="${ _csrf.parameterName }"
+					value="${ _csrf.token }" /> 
+					
+					<h3>Connect your account</h3>
+					
+					<input type="text"
+					placeholder="Username" name="username" required /> <input
+					type="password" placeholder="Password" name="password" required />
+				<button class="signInButton" type="submit">Sign In</button>
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+
+					<button class="ghost" id="signIn">Sign In</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+
+					<img
+						src="https://static.vecteezy.com/ti/vecteur-libre/p1/153380-bataille-de-cavalerie-et-d-infanterie-gratuit-vectoriel.jpg">
+				</div>
 			</div>
-			
-			<div>
-				<label>Mot de passe</label>
-				<input type="password" name="password" />
-			</div>
-			
-			<div>
-				<input type="submit" value="Se connecter" />
-			</div>
-		</form>
-	</jsp:body>
-</t:layout>
+		</div>
+	</div>
+
+
+</body>
+</html>
