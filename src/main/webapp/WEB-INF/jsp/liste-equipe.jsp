@@ -93,10 +93,11 @@
 
 			if (nbre_check != 2) {
 				alert(dbRes[0]);
-				alert(dbRes.length + "Vous devez sélectionner deux équipes");
+				alert(dbRes.length + "Vous devez sï¿½lectionner deux ï¿½quipes");
 			} else {
-				var link = "combat?idEquipe1=" + dbRes[0] + "&idEquipe2="
-						+ dbRes[1];
+				var texte = "Debut combat";
+				var tour = 1;
+				var link = "combat?idEquipe1="+dbRes[0]+"&idEquipe2="+dbRes[1]+"&texte="+texte+"&tour="+tour;
 				alert(link);
 				window.location.href = link;
 			}

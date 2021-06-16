@@ -51,10 +51,10 @@
 				</div>
 				<div class="pricing-plan">
 					<ul class="pricing-features">
-						<p id="here"></p>
-						<li class="pricing-features-item"><input type="checkbox"
-							name="attack" value="${ equipe.id }"> <label for="attack">Attack</label>
-							<input type="checkbox" name="heal" value="${ equipe.id }">
+						<p id="texte"> ${ texte } </p>
+						<li class="pricing-features-item"><input type="radio"
+							name="action" value="attack" checked> <label for="attack">Attack</label>
+							<input type="radio" name="action" value="heal">
 							<label for="heal">Heal</label></li>
 						<label>Personnage </label>
 						<input type="text" name="personnage"

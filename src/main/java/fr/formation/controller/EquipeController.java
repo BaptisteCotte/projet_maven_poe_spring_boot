@@ -68,10 +68,15 @@ public class EquipeController {
 	}
 
 	@GetMapping("/combat")
-	public String combat(@RequestParam int idEquipe1, @RequestParam int idEquipe2, Model model) {
+	public String combat(@RequestParam int idEquipe1, @RequestParam int idEquipe2, @RequestParam String texte,@RequestParam int tour, Model model) {
 	
 	Equipe equipe1 = this.srvEquipe.findById(idEquipe1);
 	Equipe equipe2 = this.srvEquipe.findById(idEquipe2);
+	if(tour == 1) {
+		if(!texte.equals("Debut combat")) {
+			return "redirect:liste";
+		}
+	}
 	
 	Personnage e1p1 =  equipe1.getPer1();
 	Personnage e1p2 =  equipe1.getPer2();
@@ -85,7 +90,17 @@ public class EquipeController {
 
 	model.addAttribute("equipe2", equipe2);
 
+	model.addAttribute("texte",texte);
 		return "combat";
+	}
+	
+	@PostMapping("/combat")
+	public String combat(@RequestParam int attack,@RequestParam int heal,@RequestParam String personnage, Model model) {
+
+		
+		
+		return "combat";
+		
 	}
 
 	
