@@ -85,6 +85,9 @@ public class EquipeController {
 	if(texte.length()>450) {
 		texte = texte.substring(texte.length()-450);
 	}
+	if(texte.contains("<")||texte.contains(">")) {
+		texte = "ERROR";
+	}
 	
 	Personnage e1p1 =  equipe1.getPer1();
 	Personnage e1p2 =  equipe1.getPer2();
