@@ -31,10 +31,11 @@
 				<div>
 					<label>Character 1 : </label> <select name="personnageR1">
 						<c:forEach var="personnage" items="${ personnages }">
-
-							<option selected value="${ personnage.id }">${ personnage.id }
-								${ personnage.name } ${ personnage.getClass().toString().split("\\.")[3]}
-								${personnage.lvl }</option>
+							<c:if test="${ personnage.isState() }">
+								<option selected value="${ personnage.id }">${ personnage.id }
+									${ personnage.name } ${ personnage.getClass().toString().split("\\.")[3]}
+									${personnage.lvl }</option>
+							</c:if>
 						</c:forEach>
 					</select>
 				</div>
@@ -42,9 +43,11 @@
 				<div>
 					<label>Character 2 : </label> <select name="personnageR2">
 						<c:forEach var="personnage" items="${ personnages }">
-							<option selected value="${ personnage.id }">${ personnage.id }
-								${ personnage.name } ${ personnage.getClass().toString().split("\\.")[3]}
-								${personnage.lvl }</option>
+							<c:if test="${ personnage.isState() }">
+								<option selected value="${ personnage.id }">${ personnage.id }
+									${ personnage.name } ${ personnage.getClass().toString().split("\\.")[3]}
+									${personnage.lvl }</option>
+							</c:if>
 						</c:forEach>
 					</select>
 				</div>
@@ -52,9 +55,11 @@
 				<div>
 					<label>Character 3 : </label> <select name="personnageR3">
 						<c:forEach var="personnage" items="${ personnages }">
-							<option selected value="${ personnage.id }">${ personnage.id }
-								${ personnage.name } ${ personnage.getClass().toString().split("\\.")[3]}
-								${personnage.lvl }</option>
+							<c:if test="${ personnage.isState() }">
+								<option selected value="${ personnage.id }">${ personnage.id }
+									${ personnage.name } ${ personnage.getClass().toString().split("\\.")[3]}
+									${personnage.lvl }</option>
+							</c:if>
 						</c:forEach>
 					</select>
 				</div>
