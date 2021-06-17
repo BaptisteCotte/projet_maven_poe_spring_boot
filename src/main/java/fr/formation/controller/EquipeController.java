@@ -83,16 +83,13 @@ public class EquipeController {
 	
 	Equipe equipe1 = this.srvEquipe.findById(idEquipe1);
 	Equipe equipe2 = this.srvEquipe.findById(idEquipe2);
-	if(tour == 1) {
-		if(!texte.equals("Debut combat.")) {
-			return "redirect:liste";
-		}
-	}
+	
 	if(texte.length()>450) {
 		texte = texte.substring(texte.length()-450);
 	}
-	if(texte.contains("<")||texte.contains(">")) {
+	if(texte.contains("<")||texte.contains(">")||texte.contains("\"")) {
 		texte = "ERROR";
+		return "redirect:liste";
 	}
 	
 	Personnage e1p1 =  equipe1.getPer1();
