@@ -7,6 +7,14 @@
 <meta charset="ISO-8859-1">
 <title>Edit Character</title>
 <link href="/assets/css/styleForm.css" rel="stylesheet" type="text/css">
+
+<div class="navHeader">
+<ul>
+  <li><a href="/menu/liste">Home</a></li>
+  <li><a href="/personnage/liste">Personnages</a></li>
+  <li><a href="/equipe/liste">Equipes</a></li>
+</ul>
+</div>
 </head>
 <body>
 	<div class="container">
@@ -22,15 +30,19 @@
 						value="${ personnage.name }"
 						pattern="^[A-Z]+[\-]{0,1}([a-z]{1,}[\-]{0,1}){0,}[a-z]$" required />
 
-					<p>Le nom du personnage doit commencer par une minuscule. Il
-						peut contenir des '-' mais ne pas contenir de chiffres, ni
-						d'espaces.</p>
+					<p>	
+						Character's name must begin with a low case. It might contain some hyphens but can't contain any digits, nor white spaces.
+						
+						</p>
 
 
 					<div>
 						</br> </br> <label>Age</label> </br> <input type="text" name="age"
 							value="${ personnage.age }" pattern="^[\d]{0,}$" required />
-						<p>L'age du personnage ne peut-etre negatif.</p>
+						<p>
+					
+						Character's age can't be negative.
+						</p>
 					</div>
 
 					<div>

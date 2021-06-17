@@ -19,7 +19,7 @@
     </div>
     <div class="body">
       <ul>
-        <li><i class="fas fa-home icon"></i> Home</li>
+        <li><i class="fas fa-home icon"></i> Introduction</li>
         <li><i class="fab fa-wpforms icon"></i> Characters
           <ul>
             <li><i class="fas fa-pencil-alt icon"></i> <a

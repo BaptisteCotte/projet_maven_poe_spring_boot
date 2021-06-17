@@ -9,6 +9,14 @@
 <link rel="stylesheet" href="/assets/css/table.css" />
 <title>Liste des equipes</title>
 
+<div class="navHeader">
+<ul>
+  <li><a href="/menu/liste">Home</a></li>
+  <li><a href="/personnage/liste">Characters</a></li>
+  <li><a href="/equipe/liste">Teams</a></li>
+</ul>
+</div>
+
 </head>
 <body>
 
@@ -19,11 +27,11 @@
 
 	<hr class="mainHr">
 
-<%-- 	<div class="addChar">
-		<c:if test="${ fn:length(equipes) < 3 }">
+	<div class="addChar">
+
 			<a href="ajouter" class="pricing-button is-featured">New Team</a>
-		</c:if>
-	</div> --%>
+
+	</div> 
 	
 	<div class="background">
 		<div class="container">
@@ -36,33 +44,38 @@
 							src="https://www.pngkey.com/png/detail/6-61715_knight-drawing-helmet-iron-man-armour-knight-drawing.png"
 							alt="" class="pricing-img">
 						<ul class="pricing-features">
-							<li class="pricing-features-item">Equipe : ${ equipe.id }</li>
-							<li class="pricing-features-item">joueur1 : ${ equipe.per1.name }
-								<br> Classe :${ equipe.per1.getClass().toString().split("\\.")[3]}
+							<li class="pricing-features-item">Team : ${ equipe.id }</li>
+							<li class="pricing-features-item">Player 1 : ${ equipe.per1.name }
+								<br> Class :${ equipe.per1.getClass().toString().split("\\.")[3]}
 								<br> Race :${ equipe.per1.race } <br> Level :${ equipe.per1.lvl }
 								<br> XP : ${ equipe.per1.xp } <br> HP : ${ equipe.per1.hp }
-								<br> Base Dommage : ${ equipe.per1.baseDmg } <br> Etat
+								<br> Base Damage : ${ equipe.per1.baseDmg } <br> State
 								: ${ equipe.per1.state }
 							</li>
-							<li class="pricing-features-item">joueur2 : ${ equipe.per2.name }
-								<br> Classe :${ equipe.per2.getClass().toString().split("\\.")[3]}
+							<li class="pricing-features-item">Player 2 : ${ equipe.per2.name }
+								<br> Class :${ equipe.per2.getClass().toString().split("\\.")[3]}
 								<br> Race :${ equipe.per2.race } <br> Level :${ equipe.per2.lvl }
 								<br> XP : ${ equipe.per2.xp } <br> HP : ${ equipe.per2.hp }
-								<br> Base Dommage : ${ equipe.per2.baseDmg } <br> Etat
+								<br> Base Damage : ${ equipe.per2.baseDmg } <br> State
 								: ${ equipe.per2.state }
 							</li>
-							<li class="pricing-features-item">joueur3 : ${ equipe.per3.name }
-								<br> Classe :${ equipe.per3.getClass().toString().split("\\.")[3]}
+							<li class="pricing-features-item">Player 3 : ${ equipe.per3.name }
+								<br> Class :${ equipe.per3.getClass().toString().split("\\.")[3]}
 								<br> Race :${ equipe.per3.race } <br> Level :${ equipe.per3.lvl }
 								<br> XP : ${ equipe.per3.xp } <br> HP : ${ equipe.per3.hp }
-								<br> Base Dommage : ${ equipe.per3.baseDmg } <br> Etat
+								<br> Base Damage : ${ equipe.per3.baseDmg } <br> State
 								: ${ equipe.per3.state }
 							</li>
 						</ul>
 
 						<span class="pricing-price"></span> <input type="checkbox"
-							name="readyForBattle" value="${ equipe.id }"> <label
-							for="readyForBattle">Ready for Battle</label> <a
+							name="readyForBattle" value="${ equipe.id }"> 
+						
+							<label
+							for="readyForBattle">Ready for Battle</label> 
+							
+								<br>
+							<a
 							href="modifier?id=<c:out value="${ equipe.id }" />"
 							class="pricing-button is-featured">Edit</a> <a
 							href="supprimer?id=${ equipe.id }"
@@ -71,10 +84,10 @@
 
 				</c:forEach>
 			</div>
-			<div>
+			<div class="battleButton">
 				<!-- <a href="combat?idEquipe1=<c:out value= "dbRes[0].value"/>&idEquipe2=<c:out value="dbRes[1].value"/>" class="pricing-button is-featured" name="battle"
 					id="battle" onclick="count_chkBox()">Battle</a> -->
-				<button class="favorite styled" type="button"
+				<button class="favorite styled pricing-button is-featured" type="button"
 					onclick="count_chkBox()">Battle</button>
 			</div>
 		</div>

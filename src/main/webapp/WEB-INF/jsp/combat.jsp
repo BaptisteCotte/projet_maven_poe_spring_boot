@@ -9,6 +9,14 @@
 <link rel="stylesheet" href="/assets/css/table.css" />
 <title>Combat</title>
 
+<div class="navHeader">
+<ul>
+  <li><a href="/menu/liste">Home</a></li>
+  <li><a href="/personnage/liste">Characters</a></li>
+  <li><a href="/equipe/liste">Teams</a></li>
+</ul>
+</div>
+
 </head>
 <body>
 
@@ -25,26 +33,26 @@
 						src="https://www.pngkey.com/png/detail/6-61715_knight-drawing-helmet-iron-man-armour-knight-drawing.png"
 						alt="" class="pricing-img">
 					<ul class="pricing-features">
-						<li class="pricing-features-item">Equipe : 1</li>
-						<li class="pricing-features-item">joueur1 : ${ equipe1.per1.name }
-							<br> Classe :${ equipe1.per1.getClass().toString().split("\\.")[3]}
+						<li class="pricing-features-item">Team 1</li>
+						<li class="pricing-features-item">Player 1 : ${ equipe1.per1.name }
+							<br> Class :${ equipe1.per1.getClass().toString().split("\\.")[3]}
 							<br> Race :${ equipe1.per1.race } <br> Level :${ equipe1.per1.lvl }
 							<br> XP : ${ equipe1.per1.xp } <br> HP : ${ equipe1.per1.hp }
-							<br> Base Dommage : ${ equipe1.per1.baseDmg } <br> Etat
+							<br> Base Damage : ${ equipe1.per1.baseDmg } <br> State
 							: ${ equipe1.per1.state }
 						</li>
-						<li class="pricing-features-item">joueur2 : ${ equipe1.per2.name }
-							<br> Classe :${ equipe1.per2.getClass().toString().split("\\.")[3]}
+						<li class="pricing-features-item">Player 2 : ${ equipe1.per2.name }
+							<br> Class :${ equipe1.per2.getClass().toString().split("\\.")[3]}
 							<br> Race :${ equipe1.per2.race } <br> Level :${ equipe1.per2.lvl }
 							<br> XP : ${ equipe1.per2.xp } <br> HP : ${ equipe1.per2.hp }
-							<br> Base Dommage : ${ equipe1.per2.baseDmg } <br> Etat
+							<br> Base Damage : ${ equipe1.per2.baseDmg } <br> State
 							: ${ equipe1.per2.state }
 						</li>
-						<li class="pricing-features-item">joueur3 : ${ equipe1.per3.name }
-							<br> Classe :${ equipe1.per3.getClass().toString().split("\\.")[3]}
+						<li class="pricing-features-item">Player 3 : ${ equipe1.per3.name }
+							<br> Class :${ equipe1.per3.getClass().toString().split("\\.")[3]}
 							<br> Race :${ equipe1.per3.race } <br> Level :${ equipe1.per3.lvl }
 							<br> XP : ${ equipe1.per3.xp } <br> HP : ${ equipe1.per3.hp }
-							<br> Base Dommage : ${ equipe1.per3.baseDmg } <br> Etat
+							<br> Base Damage : ${ equipe1.per3.baseDmg } <br> State
 							: ${ equipe1.per3.state }
 						</li>
 					</ul>
@@ -67,11 +75,11 @@
 						<label>Personnage </label>
 						<input type="text" name="cible" patern="^e[1,2]p[1,2,3]$" required>
 						<p>
-							Doit etre nommé ainsi : e1p1 <br> e1=>équipe1 <br>p1=>personnage1
+							Doit etre nommï¿½ ainsi : e1p1 <br> e1=>ï¿½quipe1 <br>p1=>personnage1
 						</p>
 
 						<li class="pricing-features-item">
-							<button class="favorite styled" type="submit" value="combat">validate</button>
+							<button class="favorite styled pricing-button is-featured" type="submit" value="combat">Confirm</button>
 						</li>
 						</form>
 					</ul>
@@ -82,26 +90,26 @@
 						src="https://www.pngkey.com/png/detail/6-61715_knight-drawing-helmet-iron-man-armour-knight-drawing.png"
 						alt="" class="pricing-img">
 					<ul class="pricing-features">
-						<li class="pricing-features-item">Equipe : 2</li>
-						<li class="pricing-features-item">joueur1 : ${ equipe2.per1.name }
-							<br> Classe :${ equipe2.per1.getClass().toString().split("\\.")[3]}
+						<li class="pricing-features-item">Team 2</li>
+						<li class="pricing-features-item">Player 1 : ${ equipe2.per1.name }
+							<br> Class :${ equipe2.per1.getClass().toString().split("\\.")[3]}
 							<br> Race :${ equipe2.per1.race } <br> Level :${ equipe2.per1.lvl }
 							<br> XP : ${ equipe2.per1.xp } <br> HP : ${ equipe2.per1.hp }
-							<br> Base Dommage : ${ equipe2.per1.baseDmg } <br> Etat
+							<br> Base Damage : ${ equipe2.per1.baseDmg } <br> State
 							: ${ equipe2.per1.state }
 						</li>
-						<li class="pricing-features-item">joueur2 : ${ equipe2.per2.name }
-							<br> Classe :${ equipe2.per2.getClass().toString().split("\\.")[3]}
+						<li class="pricing-features-item">Player 2 : ${ equipe2.per2.name }
+							<br> Class :${ equipe2.per2.getClass().toString().split("\\.")[3]}
 							<br> Race :${ equipe2.per2.race } <br> Level :${ equipe2.per2.lvl }
 							<br> XP : ${ equipe2.per2.xp } <br> HP : ${ equipe2.per2.hp }
-							<br> Base Dommage : ${ equipe2.per2.baseDmg } <br> Etat
+							<br> Base Damage : ${ equipe2.per2.baseDmg } <br> State
 							: ${ equipe2.per2.state }
 						</li>
-						<li class="pricing-features-item">joueur3 : ${ equipe2.per3.name }
-							<br> Classe :${ equipe2.per3.getClass().toString().split("\\.")[3]}
+						<li class="pricing-features-item">Player 3 : ${ equipe2.per3.name }
+							<br> Class :${ equipe2.per3.getClass().toString().split("\\.")[3]}
 							<br> Race :${ equipe2.per3.race } <br> Level :${ equipe2.per3.lvl }
 							<br> XP : ${ equipe2.per3.xp } <br> HP : ${ equipe2.per3.hp }
-							<br> Base Dommage : ${ equipe2.per3.baseDmg } <br> Etat
+							<br> Base Damage : ${ equipe2.per3.baseDmg } <br> State
 							: ${ equipe2.per3.state }
 						</li>
 					</ul>
