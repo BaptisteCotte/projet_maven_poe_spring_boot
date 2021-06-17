@@ -29,6 +29,12 @@ public class EquipeController {
 	@GetMapping("/liste")
 	public String findAll(Model model) {
 		List<Equipe> mesEquipes = this.srvEquipe.findAll();
+		for (int i = 0;i<mesEquipes.size();i++) {
+			if(!mesEquipes.get(i).getPer1().isState()||!mesEquipes.get(i).getPer2().isState()||!mesEquipes.get(i).getPer3().isState()) {
+				mesEquipes.remove(i);
+				i--;
+			}
+		}
 		model.addAttribute("equipes", mesEquipes);
 		return "liste-equipe";
 	}
@@ -268,5 +274,17 @@ public class EquipeController {
 		return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
 	}
 	
+	
+	@PreAuthorize("hasRole('ADMIN')")
+	@GetMapping("/victoire")
+	public String victoire(@RequestParam int winner, Model model) {
+		
+		Equipe equipe = this.srvEquipe.findById(winner);
+		
+		model.addAttribute("equipe", equipe);
 
+		return "victoire";
+	}
+	
+	
 }
