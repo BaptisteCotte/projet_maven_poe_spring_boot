@@ -38,6 +38,7 @@ html {
   max-width: 960px;
   width: 100%;
 
+
 }
 
 .container ul {
@@ -75,6 +76,7 @@ html {
 .pricing-plan {
   border-bottom: 1px solid #FFE561;
   padding: 25px;
+
 }
 
 .pricing-plan:last-child {
@@ -86,7 +88,7 @@ html {
     border-bottom: none;
     border-right: 1px solid #FFE561;
     flex-basis: 100%;
-    padding: 25px 50px;
+    padding: 25px 25px;
   }
 
   .pricing-plan:last-child {
@@ -107,9 +109,10 @@ html {
 
 .pricing-features {
   color: #292512;
-  letter-spacing: 1px;
   margin: 25px 0 25px;
+  
 }
+
 
 .pricing-features-item {
   border-top: 1px solid #ffef9f;
@@ -177,4 +180,42 @@ width:50%;
 	
 }
 
+.navHeader ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navHeader li {
+  float: left;
+}
+
+.navHeader li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.navHeader li a:hover {
+  background-color: #111;
+}
+
+
+
+.battleButton {
+
+	text-align:center;
+}
+
+.battleButton button{
+	
+	cursor:pointer;
+	
+	
+}
 

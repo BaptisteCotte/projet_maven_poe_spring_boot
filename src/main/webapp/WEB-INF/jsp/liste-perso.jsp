@@ -9,6 +9,14 @@
 <link rel="stylesheet" href="/assets/css/table.css" />
 <title>Liste des personnages</title>
 
+<div class="navHeader">
+<ul>
+  <li><a href="/menu/liste">Home</a></li>
+  <li><a href="/personnage/liste">Characters</a></li>
+  <li><a href="/equipe/liste">Teams</a></li>
+</ul>
+</div>
+
 </head>
 <body>
 
@@ -17,17 +25,18 @@
 	</div>
 
 	<hr class="mainHr">
+	
+	
 
-<%-- 	<div class="addChar">
-		<c:if test="${ fn:length(personnages) < 1500 }">
+	<div class="addChar">
+		
 			<a href="ajouter" class="pricing-button is-featured">New
 				character</a>
-		</c:if>
 
-	</div> --%>
+	</div> 
 	
 	<div class="background">
-		<div class="container">
+		<div>
 			<div class="panel pricing-table">
 
 				<c:forEach var="personnage" items="${ personnages }">

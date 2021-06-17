@@ -7,6 +7,15 @@
 <meta charset="ISO-8859-1">
 <title>Personnage</title>
 <link href="/assets/css/styleForm.css" rel="stylesheet" type="text/css">
+
+<div class="navHeader">
+<ul>
+  <li><a href="/menu/liste">Home</a></li>
+  <li><a href="/personnage/liste">Personnages</a></li>
+  <li><a href="/equipe/liste">Equipes</a></li>
+</ul>
+</div>
+
 </head>
 
 
