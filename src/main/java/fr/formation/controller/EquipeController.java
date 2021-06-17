@@ -283,5 +283,13 @@ public class EquipeController {
 		return "victoire";
 	}
 	
+	@PreAuthorize("hasRole('ADMIN')")
+	@GetMapping("/supprimer")
+	public String supprimer(@RequestParam int id, Model model) {
+		
+		this.srvEquipe.deleteById(id);
+
+		return "redirect:liste";
+	}
 	
 }
