@@ -99,6 +99,10 @@ public class EquipeController {
 	
 	Personnage player = e1p1;
 	
+	if((e1p1.getId() == e2p1.getId())||(e1p1.getId() == e2p2.getId())||(e1p1.getId() == e2p3.getId())||(e1p2.getId() == e2p1.getId())||(e1p2.getId() == e2p2.getId())||(e1p3.getId() == e2p3.getId())||(e1p3.getId() == e2p1.getId())||(e1p3.getId() == e2p2.getId())||(e1p3.getId() == e2p3.getId())){
+		return "redirect:liste";
+	}
+	
 	if(!e1p1.isState()&&!e1p2.isState()&&!e1p3.isState()) {
 		if(e2p1.isState()) {
 			e2p1.regen();
