@@ -42,9 +42,74 @@
 				<c:forEach var="personnage" items="${ personnages }">
 
 					<div class="pricing-plan">
-						<img
-							src="https://www.pngkey.com/png/detail/6-61715_knight-drawing-helmet-iron-man-armour-knight-drawing.png"
-							alt="" class="pricing-img">
+						<c:choose>
+
+							<c:when test="${ personnage.race == 'ORC'}">
+								<c:if
+									test="${personnage.getClass().toString().split(\"\\\.\")[3].equals(\"Knight\")}">
+									<img src="/assets/img/chevalier/orcChevalier.gif" alt=""
+										class="pricing-img">
+								</c:if>
+								<c:if test="${personnage.getClass().toString().split(\"\\\.\")[3].equals(\"Priest\")}">
+									<img src="/assets/img/pretre/orcPretre.gif" alt="" 
+									class="pricing-img">
+								</c:if>
+								<c:if test="${personnage.getClass().toString().split(\"\\\.\")[3].equals(\"Sorcerer\")}">
+									<img src="/assets/img/sorcier/orcSorcier.gif" alt=""
+										class="pricing-img">
+								</c:if>
+							</c:when>
+							
+							<c:when test="${ personnage.race == 'DWARF' }">
+								<c:if
+									test="${personnage.getClass().toString().split(\"\\\.\")[3].equals(\"Knight\")}">
+									<img src="/assets/img/chevalier/nainChevalier.gif" alt=""
+										class="pricing-img">
+								</c:if>
+								<c:if test="${personnage.getClass().toString().split(\"\\\.\")[3].equals(\"Priest\")}">
+									<img src="/assets/img/pretre/nainPretre.gif" alt="" 
+									class="pricing-img">
+								</c:if>
+								<c:if test="${personnage.getClass().toString().split(\"\\\.\")[3].equals(\"Sorcerer\")}">
+									<img src="/assets/img/sorcier/nainSorcier.gif" alt=""
+										class="pricing-img">
+								</c:if>
+							</c:when>
+							<c:when test="${ personnage.race == 'ELF' }">
+								<c:if
+									test="${personnage.getClass().toString().split(\"\\\.\")[3].equals(\"Knight\")}">
+									<img src="/assets/img/chevalier/elfChevalier.gif" alt=""
+										class="pricing-img">
+								</c:if>
+								<c:if test="${personnage.getClass().toString().split(\"\\\.\")[3].equals(\"Priest\")}">
+									<img src="/assets/img/pretre/elfPretre.gif" alt="" 
+									class="pricing-img">
+								</c:if>
+								<c:if test="${personnage.getClass().toString().split(\"\\\.\")[3].equals(\"Sorcerer\")}">
+									<img src="/assets/img/sorcier/elfSorcier.gif" alt=""
+										class="pricing-img">
+								</c:if>
+							</c:when>
+							<c:when test="${ personnage.race == 'HUMAN' }">
+									<c:if
+									test="${personnage.getClass().toString().split(\"\\\.\")[3].equals(\"Knight\")}">
+									<img src="/assets/img/chevalier/humainChevalier.gif" alt=""
+										class="pricing-img">
+								</c:if>
+									<br>
+									<br>
+									<br>
+								<c:if test="${personnage.getClass().toString().split(\"\\\.\")[3].equals(\"Priest\")}">
+									<img src="/assets/img/pretre/humainPretre.gif" alt="" 
+									class="pricing-img">	
+										<br>						
+								</c:if>
+								<c:if test="${personnage.getClass().toString().split(\"\\\.\")[3].equals(\"Sorcerer\")}">
+									<img src="/assets/img/sorcier/humainSorcier.gif" alt=""
+										class="pricing-img">
+								</c:if>
+							</c:when>
+						</c:choose>
 						<h2 class="pricing-header">${ personnage.name }</h2>
 						<ul class="pricing-features">
 							<li class="pricing-features-item">ID : ${ personnage.id }</li>
