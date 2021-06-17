@@ -29,12 +29,7 @@ public class EquipeController {
 	@GetMapping("/liste")
 	public String findAll(Model model) {
 		List<Equipe> mesEquipes = this.srvEquipe.findAll();
-		for (int i = 0;i<mesEquipes.size();i++) {
-			if(!mesEquipes.get(i).getPer1().isState()||!mesEquipes.get(i).getPer2().isState()||!mesEquipes.get(i).getPer3().isState()) {
-				mesEquipes.remove(i);
-				i--;
-			}
-		}
+		
 		model.addAttribute("equipes", mesEquipes);
 		return "liste-equipe";
 	}

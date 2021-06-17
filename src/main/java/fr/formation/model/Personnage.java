@@ -139,15 +139,15 @@ public abstract class Personnage {
 	public int defineMaxHp() {
 		switch(this.race){
 		case HUMAN :
-			return 100;
+			return 50;
 		case ORC :
-			return 100;
+			return 50;
 		case ELF :
-			return 90;
+			return 45;
 		case DWARF :
-			return 110;
+			return 55;
 		default :
-			return 100;
+			return 50;
 		}
 	}
 
