@@ -60,7 +60,7 @@
 				
 				<div class="pricing-plan">
 					<p>Tour de : ${ player.name }</p>
-					<img src="https://static.vecteezy.com/ti/vecteur-libre/p1/153380-bataille-de-cavalerie-et-d-infanterie-gratuit-vectoriel.jpg">
+					<img class="combatImage" src="https://static.vecteezy.com/ti/vecteur-libre/p1/153380-bataille-de-cavalerie-et-d-infanterie-gratuit-vectoriel.jpg">
 					<ul class="pricing-features">
 						<p id="texte"> ${ texte } </p>
 						<form method="POST">
