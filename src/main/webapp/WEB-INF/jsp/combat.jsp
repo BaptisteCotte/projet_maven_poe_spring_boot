@@ -75,7 +75,7 @@
 						<label>Personnage </label>
 						<input type="text" name="cible" patern="^e[1,2]p[1,2,3]$" required>
 						<p>
-							Doit etre nommï¿½ ainsi : e1p1 <br> e1=>ï¿½quipe1 <br>p1=>personnage1
+							Doit etre nommé ainsi : e1p1 <br> e1=>équipe1 <br>p1=>personnage1
 						</p>
 
 						<li class="pricing-features-item">

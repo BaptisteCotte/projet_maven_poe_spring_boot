@@ -13,15 +13,15 @@ public class Equipe {
 	@Column(name = "EQU_ID")
 	protected int id;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
     @JoinColumn(name = "EQU_PER_1", referencedColumnName = "PER_ID")
 	protected Personnage per1;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
     @JoinColumn(name = "EQU_PER_2", referencedColumnName = "PER_ID")
 	protected Personnage per2;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
     @JoinColumn(name = "EQU_PER_3", referencedColumnName = "PER_ID")
 	protected Personnage per3 ;
 	
