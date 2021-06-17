@@ -96,13 +96,9 @@
 									<img src="/assets/img/chevalier/humainChevalier.gif" alt=""
 										class="pricing-img">
 								</c:if>
-									<br>
-									<br>
-									<br>
 								<c:if test="${personnage.getClass().toString().split(\"\\\.\")[3].equals(\"Priest\")}">
 									<img src="/assets/img/pretre/humainPretre.gif" alt="" 
-									class="pricing-img">	
-										<br>						
+									class="pricing-img">						
 								</c:if>
 								<c:if test="${personnage.getClass().toString().split(\"\\\.\")[3].equals(\"Sorcerer\")}">
 									<img src="/assets/img/sorcier/humainSorcier.gif" alt=""
