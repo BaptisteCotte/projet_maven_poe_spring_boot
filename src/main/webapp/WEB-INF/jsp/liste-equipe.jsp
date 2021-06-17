@@ -112,7 +112,7 @@
 				var texte = "Debut combat.";
 				var tour = 1;
 				var link = "combat?idEquipe1="+dbRes[0]+"&idEquipe2="+dbRes[1]+"&texte="+texte+"&tour="+tour;
-				alert(link);
+				/* alert(link); */
 				window.location.href = link;
 			}
 		}

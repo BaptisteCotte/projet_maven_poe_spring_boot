@@ -10,8 +10,8 @@
 <div class="navHeader">
 <ul>
   <li><a href="/menu/liste">Home</a></li>
-  <li><a href="/personnage/liste">Personnages</a></li>
-  <li><a href="/equipe/liste">Equipes</a></li>
+  <li><a href="/personnage/liste">Characters</a></li>
+  <li><a href="/equipe/liste">Teams</a></li>
 </ul>
 </div>
 
