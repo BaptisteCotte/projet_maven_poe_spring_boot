@@ -106,8 +106,7 @@
 			}
 
 			if (nbre_check != 2) {
-				alert(dbRes[0]);
-				alert(dbRes.length + "Vous devez s�lectionner deux �quipes");
+				alert(dbRes.length + "Vous devez sélectionner deux équipes");
 			} else {
 				var texte = "Debut combat.";
 				var tour = 1;

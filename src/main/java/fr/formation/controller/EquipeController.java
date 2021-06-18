@@ -142,29 +142,29 @@ public class EquipeController {
 			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
 		}
 	}else if(tour==2) {
-		if(e1p2.isState()) {
-			player = e1p2;
-		}else {
-			tour++;
-			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
-		}
-	}else if(tour==3) {
-		if(e1p3.isState()) {
-			player = e1p3;
-		}else {
-			tour++;
-			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
-		}
-	}else if(tour==4) {
 		if(e2p1.isState()) {
 			player = e2p1;
 		}else {
 			tour++;
 			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
 		}
-	}else if(tour==5) {
+	}else if(tour==3) {
+		if(e1p2.isState()) {
+			player = e1p2;
+		}else {
+			tour++;
+			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
+		}
+	}else if(tour==4) {
 		if(e2p2.isState()) {
 			player = e2p2;
+		}else {
+			tour++;
+			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
+		}
+	}else if(tour==5) {
+		if(e1p3.isState()) {
+			player = e1p3;
 		}else {
 			tour++;
 			return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
@@ -246,6 +246,7 @@ public class EquipeController {
 				this.srvPersonnage.update(attaque);
 				
 			} else {
+				texte = texte+" attaque "+attaque.getName()+"... mais cette cible est déjà hors combat. ";
 				return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
 			}
 		}
@@ -260,6 +261,7 @@ public class EquipeController {
 				texte = texte+"La cible a gagne "+gagne+" hp. Il lui en a maintenant "+hpAfter+".";
 				this.srvPersonnage.update(attaque);
 			} else {
+				texte = texte+" soigne "+attaque.getName()+"... mais cette cible est déjà hors combat. ";
 				return "redirect:combat?idEquipe1="+idEquipe1+"&idEquipe2="+idEquipe2+"&texte="+texte+"&tour="+tour;
 			}
 		}

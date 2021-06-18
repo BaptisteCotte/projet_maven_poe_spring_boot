@@ -99,4 +99,5 @@ public class PersonnageController {
 
 		return "redirect:liste";
 	}
+	
 }
